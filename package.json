@@ -1,0 +1,24 @@
+{
+  "name": "api-automation-using-cypress",
+  "version": "1.0.0",
+  "description": "latihan api automation",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx mocha"
+  },
+  "keywords": [
+    "api",
+    "automation"
+  ],
+  "author": "risdhoas",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
+  },
+  "devDependencies": {
+    "mochawesome": "^7.1.3"
+  }
+
+}

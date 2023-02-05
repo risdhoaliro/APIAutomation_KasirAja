@@ -1,0 +1,220 @@
+{
+  "stats": {
+    "suites": 4,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-02-04T14:58:54.046Z",
+    "end": "2023-02-04T14:58:56.249Z",
+    "duration": 2203,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3d3bad19-22ef-4ddc-9de0-f8d7ca15437d",
+      "title": "",
+      "fullFile": "C:\\Users\\acer\\Downloads\\API Automation Kasir\\api\\test\\products\\crud_Products.js",
+      "file": "\\api\\test\\products\\crud_Products.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "835cb65d-d599-406b-88b0-78ae08562bad",
+          "title": "POST /products",
+          "fullFile": "C:\\Users\\acer\\Downloads\\API Automation Kasir\\api\\test\\products\\crud_Products.js",
+          "file": "\\api\\test\\products\\crud_Products.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "add products",
+              "fullTitle": "POST /products add products",
+              "timedOut": false,
+              "duration": 1516,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const response = await request.post(\"/products\").set({ Authorization: AUTH }).send({\n  category_id: ADD_PRODUCTS.category_id,\n  code: ADD_PRODUCTS.code,\n  name: ADD_PRODUCTS.name,\n  price: ADD_PRODUCTS.price,\n  cost: ADD_PRODUCTS.cost,\n  stock: ADD_PRODUCTS.stock,\n});\n//-- respomse status\nif (response.statusCode > 201) {\n  console.log(\"API response failed with status code:\", response.statusCode);\n  expect(response.statusCode).to.be.lessThan(201);\n} else {\n  console.log(\"API response successful with status code:\", response.statusCode);\n  expect(response.statusCode).to.equal(201);\n}\n//-- response data body\nconsole.log(response.body);\nexpect(response.body).to.have.property(\"status\").eql(\"success\");\n// expect(response.body).to.have.property(\"message\").eql(\"Product berhasil ditambahkan\");\n// expect(response.body.data.name).to.eql(\"gudeg jogja\");",
+              "err": {},
+              "uuid": "407b98f9-f8c3-4ad8-9400-bb28b0a19383",
+              "parentUUID": "835cb65d-d599-406b-88b0-78ae08562bad",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [
+            {
+              "uuid": "72048490-8485-405a-9bfb-61781ee236ec",
+              "title": "GET /products/99bf6746-0a3b-4460-9f1a-09e2b77ac3bd",
+              "fullFile": "C:\\Users\\acer\\Downloads\\API Automation Kasir\\api\\test\\products\\crud_Products.js",
+              "file": "\\api\\test\\products\\crud_Products.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "products detail",
+                  "fullTitle": "POST /products GET /products/99bf6746-0a3b-4460-9f1a-09e2b77ac3bd products detail",
+                  "timedOut": false,
+                  "duration": 188,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "const response = await request.get(\"/products/99bf6746-0a3b-4460-9f1a-09e2b77ac3bd\").set({ Authorization: AUTH });\n//-- respomse status\nif (response.statusCode > 200) {\n  console.log(\"API response failed with status code:\", response.statusCode);\n  expect(response.statusCode).to.be.lessThan(200);\n} else {\n  console.log(\"API response successful with status code:\", response.statusCode);\n  expect(response.statusCode).to.equal(200);\n}\n//-- displays data body\nconsole.log(response.body);\nexpect(response.body).to.have.property(\"status\").eql(\"success\");",
+                  "err": {},
+                  "uuid": "741ba443-d4c1-422d-9ea7-cff0d8e5c94b",
+                  "parentUUID": "72048490-8485-405a-9bfb-61781ee236ec",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [
+                {
+                  "uuid": "a8c83593-dcc8-4e13-acc2-8d35e4eddb78",
+                  "title": "PUT /products/99bf6746-0a3b-4460-9f1a-09e2b77ac3bd",
+                  "fullFile": "C:\\Users\\acer\\Downloads\\API Automation Kasir\\api\\test\\products\\crud_Products.js",
+                  "file": "\\api\\test\\products\\crud_Products.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "update products",
+                      "fullTitle": "POST /products GET /products/99bf6746-0a3b-4460-9f1a-09e2b77ac3bd PUT /products/99bf6746-0a3b-4460-9f1a-09e2b77ac3bd update products",
+                      "timedOut": false,
+                      "duration": 196,
+                      "state": "passed",
+                      "speed": "slow",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "const response = await request.put(\"/products/99bf6746-0a3b-4460-9f1a-09e2b77ac3bd\").set({ Authorization: AUTH }).send({\n  category_id: UPDATE_PRODUCTS.category_id,\n  code: UPDATE_PRODUCTS.code,\n  name: UPDATE_PRODUCTS.name,\n  price: UPDATE_PRODUCTS.price,\n  cost: UPDATE_PRODUCTS.cost,\n  stock: UPDATE_PRODUCTS.stock,\n});\n//-- respomse status\nif (response.statusCode > 200) {\n  console.log(\"API response failed with status code:\", response.statusCode);\n  expect(response.statusCode).to.be.lessThan(200);\n} else {\n  console.log(\"API response successful with status code:\", response.statusCode);\n  expect(response.statusCode).to.equal(200);\n}\n//-- display data body\nconsole.log(response.body);\n//-- check response is success\nif (response.status >= 200 && response.status < 300) {\n  //-- check API response body contains the expected properties\n  expect(response.body).to.have.property(\"status\").eql(\"success\");\n  expect(response.body.message).to.eql(\"Product berhasil diupdate\");\n} else {\n  console.error(\"API response failed with status code:\", response.status);\n}",
+                      "err": {},
+                      "uuid": "438669b9-cae2-41c5-80d3-9722a2cc94ed",
+                      "parentUUID": "a8c83593-dcc8-4e13-acc2-8d35e4eddb78",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [
+                    {
+                      "uuid": "5498f4a8-af42-4fe4-99b3-c73c42cc9fb9",
+                      "title": "DELETE /products/32a9b38a-e5b6-48b4-ab2a-0f6066e5c449",
+                      "fullFile": "C:\\Users\\acer\\Downloads\\API Automation Kasir\\api\\test\\products\\crud_Products.js",
+                      "file": "\\api\\test\\products\\crud_Products.js",
+                      "beforeHooks": [],
+                      "afterHooks": [],
+                      "tests": [
+                        {
+                          "title": "delete detail",
+                          "fullTitle": "POST /products GET /products/99bf6746-0a3b-4460-9f1a-09e2b77ac3bd PUT /products/99bf6746-0a3b-4460-9f1a-09e2b77ac3bd DELETE /products/32a9b38a-e5b6-48b4-ab2a-0f6066e5c449 delete detail",
+                          "timedOut": false,
+                          "duration": 288,
+                          "state": "passed",
+                          "speed": "slow",
+                          "pass": true,
+                          "fail": false,
+                          "pending": false,
+                          "context": null,
+                          "code": "const response = await request.delete(\"/products/32a9b38a-e5b6-48b4-ab2a-0f6066e5c449\").set({ Authorization: AUTH });\n//-- respomse status\nif (response.statusCode > 200) {\n  console.log(\"API response failed with status code:\", response.statusCode);\n  expect(response.statusCode).to.be.lessThan(200);\n} else {\n  console.log(\"API response successful with status code:\", response.statusCode);\n  expect(response.statusCode).to.equal(200);\n}\n//-- displays data body\nconsole.log(response.body);\nexpect(response.body).to.have.property(\"status\").eql(\"success\");",
+                          "err": {},
+                          "uuid": "9ed0d42e-bdd4-4abe-8d46-4af55238572f",
+                          "parentUUID": "5498f4a8-af42-4fe4-99b3-c73c42cc9fb9",
+                          "isHook": false,
+                          "skipped": false
+                        }
+                      ],
+                      "suites": [],
+                      "passes": [
+                        "9ed0d42e-bdd4-4abe-8d46-4af55238572f"
+                      ],
+                      "failures": [],
+                      "pending": [],
+                      "skipped": [],
+                      "duration": 288,
+                      "root": false,
+                      "rootEmpty": false,
+                      "_timeout": 30000
+                    }
+                  ],
+                  "passes": [
+                    "438669b9-cae2-41c5-80d3-9722a2cc94ed"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 196,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 30000
+                }
+              ],
+              "passes": [
+                "741ba443-d4c1-422d-9ea7-cff0d8e5c94b"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 188,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 30000
+            }
+          ],
+          "passes": [
+            "407b98f9-f8c3-4ad8-9400-bb28b0a19383"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 1516,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 30000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.2.0"
+    }
+  }
+}
