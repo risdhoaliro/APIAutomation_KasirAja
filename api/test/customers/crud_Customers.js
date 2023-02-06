@@ -21,8 +21,20 @@ describe("POST /customers", function () {
       console.log("API response successful with status code:", response.statusCode);
       expect(response.statusCode).to.eql(201);
     }
+
     //-- response data body
     console.log(response.body);
+
+    if (response.status === "success") {
+      expect(response).to.have.property("message").that.eql("Customer berhasil ditambahkan");
+      expect(response).to.have.property("data").that.deep.equals({
+        customerId: "a4d1cf3c-f714-4d04-b258-0eff0e7cfd55",
+        name: "Risdho",
+      });
+    } else {
+      expect(response).to.have.property("status").that.eql("fail");
+      expect(response).to.have.property("message");
+    }
   });
 });
 
@@ -30,7 +42,7 @@ describe("GET /customers/78ee9e22-6bda-49e7-92a1-14b5b6963220", function () {
   it("Customers Detail", async function () {
     const response = await request.get("/customers/78ee9e22-6bda-49e7-92a1-14b5b6963220").set({ Authorization: AUTH });
 
-    //-- respomse status
+    //-- respomse status OK
     if (response.statusCode > 200) {
       console.log("API response failed with status code:", response.statusCode);
       expect(response.statusCode).to.be.lessThan(200);
@@ -38,6 +50,7 @@ describe("GET /customers/78ee9e22-6bda-49e7-92a1-14b5b6963220", function () {
       console.log("API response successful with status code:", response.statusCode);
       expect(response.statusCode).to.equal(200);
     }
+
     //-- displays data body
     console.log(response.body);
 
@@ -59,6 +72,10 @@ describe("GET /customers/78ee9e22-6bda-49e7-92a1-14b5b6963220", function () {
       // handle the case for non-success status codes
       expect(response.body).to.not.have.property("status");
     }
+
+    // Assert Negative Case
+    // expect(response).to.have.property("status").that.eql("fail");
+    // expect(response).to.not.have.property("data");
   });
 });
 
@@ -89,6 +106,10 @@ describe("PUT /customers/78ee9e22-6bda-49e7-92a1-14b5b6963220", function () {
       // handle the case for other status values
       expect(response.statusCode).to.not.be.within(200, 201);
     }
+
+    // Assert Negative Case
+    //  expect(response).to.have.property("status").that.equals("fail");
+    //  expect(response).to.not.have.property("data");
   });
 });
 
@@ -115,5 +136,8 @@ describe("DELETE /customers/064a4e69-2046-4258-8960-bf6bd4e07804", function () {
       // handle the case for other status values
       expect(response.statusCode).to.not.be.within(200, 201);
     }
+
+    // Assert Negative Case
+    //  expect(response).to.have.property("status").that.equals("fail");
   });
 });
